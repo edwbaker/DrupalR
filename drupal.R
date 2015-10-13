@@ -10,7 +10,10 @@ drupalr.logout <- function(h) {
   GET(paste0(h['url'], "/user/logout"));
 }
 
-drupalr_get <- function(h, path) {
-  get <- GET(paste0(h['url'], "/", path));
+drupalr.get <- function(h, path, userAgent = NULL) {
+  if (is.null(userAgent)) {
+    userAgent <- "DrupalR";
+  }
+  get <- GET(paste0(h['url'], "/", path), user_agent = userAgent);
   return (get);
 }
