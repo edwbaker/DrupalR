@@ -1,0 +1,9 @@
+Package: DrupalR
+Type: Package
+Title: Prototype functions for accessing Drupal websites
+Version: 1.0
+Date: 2015-10-13
+Author: Ed Baker
+Maintainer: Ed Baker <edwbaker@gmail.com>
+Description: Authenticate to a Drupal site and access content.
+License: GPL
