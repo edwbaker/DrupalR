@@ -6,7 +6,7 @@
 Protypes for accessing Drupal websites.
 }
 \description{
-Authenticate to and get content from Drupal websites.
+Authenticate to and get content from Drupal websites from within the R environment.
 }
 \details{
 \tabular{ll}{
@@ -16,7 +16,7 @@ Version: \tab 1.0\cr
 Date: \tab 2015-10-13\cr
 License: \tab GPL\cr
 }
-Helper functionality for other packages, such as BioAcousticaR.
+This module provides helper functionality for other packages, such as BioAcousticaR. It is unlikely that you will have to use it directly unless you are writing your own package.
 }
 \author{
 Ed Baker
