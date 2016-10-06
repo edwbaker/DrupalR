@@ -8,7 +8,8 @@ drupalr.authenticate <- function(d_url, d_name, d_pass) {
     form_id="user_login"
   )
   curl = getCurlHandle()
-  curlSetOpt(cookiejar="cookies.txt",  useragent="DrupalR", followlocation = TRUE, curl=curl)
+  curl = drupalr.agent("DrupalR", curl)
+  curlSetOpt(cookiejar="cookies.txt", followlocation = TRUE, curl=curl)
   html = postForm(paste(paste0(d_url,"/user/login")), .params = pars, curl=curl)
   return(curl)
 }
@@ -19,4 +20,9 @@ drupalr.logout <- function(d_url, c) {
 
 drupalr.get <- function(d_url, path, c, useragent="DrupalR") {
   return(getURL(paste0(d_url,path), curl = c))
+}
+
+drupalr.agent <- function(agent, c) {
+  curlSetOpt(useragent=agent, curl = c)
+  return(c)
 }
