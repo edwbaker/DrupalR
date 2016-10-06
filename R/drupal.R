@@ -18,7 +18,7 @@ drupalr.logout <- function(d_url, c) {
   getURL(paste(d_url,"user/logout"), curl = c)
 }
 
-drupalr.get <- function(d_url, path, c) {
+drupalr.get <- function(d_url, path, c = getCurlHandle()) {
   return(getURL(paste0(d_url,path), curl = c))
 }
 
