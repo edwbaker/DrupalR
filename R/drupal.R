@@ -16,7 +16,3 @@ drupalr.authenticate <- function(d_url, d_name, d_pass) {
 drupalr.logout <- function(d_url, c) {
   getURL(paste(d_url,"user/logout"), curl = c)
 }
-
-drupalr.get <- function(h, path, userAgent = NULL) {
-  
-}
