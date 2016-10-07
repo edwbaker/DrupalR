@@ -34,6 +34,7 @@ drupalr.postForm <- function(d_url, d_path, form_id, pars, c) {
   data <- xml_find_one(data, paste0('//*[(@id = "',gsub("_", "-", form_id), '")]'));
   form_token <- unname(xml_attrs(xml_find_all(data, '//*[(@name = "form_token")]'))[[1]]['value'])
   form_build_id <- unname(xml_attrs(xml_find_all(data, '//*[(@name = "form_build_id")]'))[[1]]['value'])
+  form_id <- unname(xml_attrs(xml_find_all(data, '//*[(@name = "form_id")]'))[[1]]['value'])
   
   i_pars=list(
     form_id=form_id,
