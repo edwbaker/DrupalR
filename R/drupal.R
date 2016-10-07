@@ -27,8 +27,6 @@ drupalr.agent <- function(agent, c) {
   return(c)
 }
 
-drupalr.authenticate("bio.acousti.ca", "soundscape_bot", "password") -> c;
-
 drupalr.postForm <- function(d_url, d_path, form_id, pars, c) {
   #First load form to get token and build_id
   form <- getURL(paste0(d_url, d_path), curl = c);
