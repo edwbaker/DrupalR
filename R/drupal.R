@@ -54,5 +54,5 @@ drupalr.postComment <- function(d_url, d_path, body, params, curl) {
     'comment_body[und][0][format]' = 'comment_filtered_html'
   );
   params <- c(params, comment_params);
-  drupalr.postForm(d_url, d_path, "comment_node_recording_form", params, curl);
+  drupalr.postForm(d_url, d_path, "comment_form", params, curl);
 }
