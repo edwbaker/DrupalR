@@ -44,7 +44,7 @@ drupalr.postForm <- function(d_url, d_path, form_id, pars, c) {
   
   pars = c(pars, i_pars);
   
-  html = postForm(paste(paste0("bio.acousti.ca","/content/neoxabea-bipunctata-calling-sassafras")), .params = pars, curl=c)
+  html = postForm(paste(paste0(d_url, d_path, .params = pars, curl=c)
 }
 
 drupalr.postComment <- function(d_url, d_path, body, params, curl) {
