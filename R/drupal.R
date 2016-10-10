@@ -26,13 +26,14 @@ drupalr.agent <- function(agent, c) {
   curlSetOpt(useragent=agent, curl = c)
   return(c)
 }
+
 drupalr.postForm <- function(d_url, d_path, form_id, pars, c) {
-  message("OK")
   #First load form to get token and build_id
   form <- getURL(paste0(d_url, d_path), curl = c);
   data <- read_html(form)
   
-  message(form_id)
+  num <- 1;
+  if (form_id == "comment_form") { num <- 3}
   
   data <- xml_find_one(data, paste0('//*[(@id = "',gsub("_", "-", form_id), '")]'));
   form_token <- unname(xml_attrs(xml_find_all(data, '//*[(@name = "form_token")]'))[[3]]['value'])
