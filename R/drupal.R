@@ -27,14 +27,18 @@ drupalr.agent <- function(agent, c) {
   return(c)
 }
 drupalr.postForm <- function(d_url, d_path, form_id, pars, c) {
+  message("OK")
   #First load form to get token and build_id
   form <- getURL(paste0(d_url, d_path), curl = c);
   data <- read_html(form)
   
+  message(form_id)
+  
   data <- xml_find_one(data, paste0('//*[(@id = "',gsub("_", "-", form_id), '")]'));
-  form_token <- unname(xml_attrs(xml_find_all(data, '//*[(@name = "form_token")]'))[[1]]['value'])
-  form_build_id <- unname(xml_attrs(xml_find_all(data, '//*[(@name = "form_build_id")]'))[[1]]['value'])
-  form_id <- unname(xml_attrs(xml_find_all(data, '//*[(@name = "form_id")]'))[[1]]['value'])
+  form_token <- unname(xml_attrs(xml_find_all(data, '//*[(@name = "form_token")]'))[[3]]['value'])
+  form_build_id <- unname(xml_attrs(xml_find_all(data, '//*[(@name = "form_build_id")]'))[[3]]['value'])
+  form_id <- unname(xml_attrs(xml_find_all(data, '//*[(@name = "form_id")]'))[[3]]['value'])
+  message(form_id)
   
   i_pars=list(
     form_id=form_id,
