@@ -27,12 +27,11 @@ drupalr.agent <- function(agent, c) {
   return(c)
 }
 
-drupalr.postForm <- function(d_url, d_path, form_id, pars, c) {
+drupalr.postForm <- function(d_url, d_path, form_id, pars, c, num=1) {
   #First load form to get token and build_id
   form <- getURL(paste0(d_url, d_path), curl = c);
   data <- read_html(form)
   
-  num <- 1;
   if (form_id == "comment_form") { num <- 3}
   
   data <- xml_find_one(data, paste0('//*[(@id = "',gsub("_", "-", form_id), '")]'));
