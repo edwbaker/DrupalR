@@ -48,12 +48,12 @@ drupalr.postForm <- function(d_url, d_path, form_id, pars, c, num=1) {
   html = RCurl::postForm(paste0(d_url, d_path), .params = pars, curl=c)
 }
 
-drupalr.postComment <- function(d_url, d_path, body, params, curl) {
+drupalr.postComment <- function(d_url, d_path, body, params, c) {
   comment_params = list(
     op="Save",
     'comment_body[und][0][value]' = body,
     'comment_body[und][0][format]' = 'comment_filtered_html'
   );
   params <- c(params, comment_params);
-  DrupalR::drupalr.postForm(d_url, d_path, "comment_form", params, curl);
+  DrupalR::drupalr.postForm(d_url, d_path, "comment_form", params, c);
 }
