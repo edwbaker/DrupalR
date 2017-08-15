@@ -7,24 +7,24 @@ GET a page from a Drupal site
 Used to fetch a page froma  Drupal website using a HTTP GET request.
 }
 \usage{
-drupalr.get(h, path, userAgent = NULL)
+drupalr.get(d_url, path, c = getCurlHandle())
 }
 \arguments{
-  \item{h}{
-  A handle from a previous authentication.
+  \item{d_url}{
+  Base URL of the Drupal site.
 }
   \item{path}{
   The path on the site you wish to access (no preceding /).
 }
-  \item{userAgent}{
-  Optionally specify a custom user-agent string.
+  \item{c}{
+  Optionally provide an authenticated CURL object.
 }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
-  A httr response.
+  A HTTP string.
 }
 \references{
 %% ~put references to the literature/web site here ~
@@ -47,14 +47,8 @@ Ed Baker
 ##--	or do  help(data=index)  for the standard data sets.
 
 ## The function is currently defined as
-function (h, path, userAgent = NULL) 
-{
-    if (is.null(userAgent)) {
-        userAgent <- "DrupalR"
-    }
-    get <- GET(paste0(h["url"], "/", path), user_agent = userAgent)
-    return(get)
-  }
+function(d_url, path, c = getCurlHandle()) {
+  return(getURL(paste0(d_url,path), curl = c))
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
