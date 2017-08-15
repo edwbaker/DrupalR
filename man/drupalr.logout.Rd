@@ -53,6 +53,7 @@ drupalr.logout(d_url, c)
 function(d_url, c) {
   getURL(paste(d_url,"user/logout"), curl = c)
 }
+}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 \keyword{ ~kwd1 }

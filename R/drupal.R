@@ -33,9 +33,9 @@ drupalr.postForm <- function(d_url, d_path, form_id, pars, c, num=1) {
   if (form_id == "comment_form") { num <- 3}
   
   data <- xml2::xml_find_first(data, paste0('//*[(@id = "',gsub("_", "-", form_id), '")]'));
-  form_token <- unname(xml_attrs(xml_find_all(data, '//*[(@name = "form_token")]'))[[num]]['value'])
-  form_build_id <- unname(xml_attrs(xml_find_all(data, '//*[(@name = "form_build_id")]'))[[num]]['value'])
-  form_id <- unname(xml_attrs(xml_find_all(data, '//*[(@name = "form_id")]'))[[num]]['value'])
+  form_token <- unname(xml2::xml_attrs(xml2::xml_find_all(data, '//*[(@name = "form_token")]'))[[num]]['value'])
+  form_build_id <- unname(xml2::xml_attrs(xml2::xml_find_all(data, '//*[(@name = "form_build_id")]'))[[num]]['value'])
+  form_id <- unname(xml2::xml_attrs(xml2::xml_find_all(data, '//*[(@name = "form_id")]'))[[num]]['value'])
   
   i_pars=list(
     form_id=form_id,

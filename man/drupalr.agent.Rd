@@ -48,6 +48,7 @@ drupalr.agent <- function(agent, c) {
   curlSetOpt(useragent=agent, curl = c)
   return(c)
 }
+}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 \keyword{ ~kwd1 }
