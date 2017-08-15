@@ -8,16 +8,16 @@ drupalr.authenticate <- function(d_url, d_name, d_pass) {
   curl = Rcurl::getCurlHandle()
   curl = DrupalR::drupalr.agent("DrupalR", curl)
   RCurl::curlSetOpt(cookiejar="cookies.txt", followlocation = TRUE, curl=curl)
-  html = DrupalR::postForm(paste(paste0(d_url,"/user/login")), .params = pars, curl=curl)
+  html = RCurl::postForm(paste(paste0(d_url,"/user/login")), .params = pars, curl=curl)
   return(curl)
 }
 
 drupalr.logout <- function(d_url, c) {
-  DrupalR::getURL(paste(d_url,"user/logout"), curl = c)
+  getURL(paste(d_url,"user/logout"), curl = c)
 }
 
 drupalr.get <- function(d_url, path, c = getCurlHandle()) {
-  return(DrupalR::getURL(paste0(d_url,path), curl = c))
+  return(RCurl::getURL(paste0(d_url,path), curl = c))
 }
 
 drupalr.agent <- function(agent, c) {
@@ -27,7 +27,7 @@ drupalr.agent <- function(agent, c) {
 
 drupalr.postForm <- function(d_url, d_path, form_id, pars, c, num=1) {
   #First load form to get token and build_id
-  form <- DrupalR::getURL(paste0(d_url, d_path), curl = c);
+  form <- RCurl::getURL(paste0(d_url, d_path), curl = c);
   data <- xml2::read_html(form)
   
   if (form_id == "comment_form") { num <- 3}
@@ -45,7 +45,7 @@ drupalr.postForm <- function(d_url, d_path, form_id, pars, c, num=1) {
   
   pars = c(pars, i_pars);
   
-  html = DrupalR::postForm(paste0(d_url, d_path), .params = pars, curl=c)
+  html = RCurl::postForm(paste0(d_url, d_path), .params = pars, curl=c)
 }
 
 drupalr.postComment <- function(d_url, d_path, body, params, curl) {
