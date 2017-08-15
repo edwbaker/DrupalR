@@ -19,9 +19,9 @@ drupalr.agent(agent, c)
   A valid CURL handler from drupalr.authenticate.
 }
 }
-\details{
+%\details{
 %%  ~~ If necessary, more details than the description above ~~
-}
+%}
 \value{
 A modified CURL object with the specified user-agent.
 }

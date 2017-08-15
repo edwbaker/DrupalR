@@ -20,9 +20,9 @@ drupalr.get(d_url, path, c = getCurlHandle())
   Optionally provide an authenticated CURL object.
 }
 }
-\details{
+%\details{
 %%  ~~ If necessary, more details than the description above ~~
-}
+%}
 \value{
   A HTTP string.
 }

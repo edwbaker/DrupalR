@@ -23,10 +23,10 @@ Ed Baker
 
 Maintainer: Ed Baker <edwbaker@gmail.com>
 }
-\references{
-}
+%\references{
+%}
 \keyword{ package }
-\seealso{
-}
-\examples{
-}
+%\seealso{
+%}
+%\examples{
+%}
