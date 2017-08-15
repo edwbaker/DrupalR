@@ -5,7 +5,7 @@ drupalr.authenticate <- function(d_url, d_name, d_pass) {
     pass= d_pass,
     form_id="user_login"
   )
-  curl = Rcurl::getCurlHandle()
+  curl = RCurl::getCurlHandle()
   curl = DrupalR::drupalr.agent("DrupalR", curl)
   RCurl::curlSetOpt(cookiejar="cookies.txt", followlocation = TRUE, curl=curl)
   html = RCurl::postForm(paste(paste0(d_url,"/user/login")), .params = pars, curl=curl)
