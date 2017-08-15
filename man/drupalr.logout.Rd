@@ -8,13 +8,16 @@ Logout of a Drupal site
 Used to logout of a Drupal website at the end of a session, or to change users.
 }
 \usage{
-drupalr.logout(h)
+drupalr.logout(d_url, c)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{h}{
-  The handle provided by the drupalr.authenticate function used to login.
-}
+  \item{d_url}{
+  The base URL of the Drupal site.
+  }
+  \item{c}{
+  A CURL object containing the session to be logged out.
+  }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
@@ -47,10 +50,8 @@ drupalr.logout(h)
 ##--	or do  help(data=index)  for the standard data sets.
 
 ## The function is currently defined as
-function (h) 
-{
-    GET(paste0(h["url"], "/user/logout"))
-  }
+function(d_url, c) {
+  getURL(paste(d_url,"user/logout"), curl = c)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
