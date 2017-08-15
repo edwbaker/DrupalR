@@ -8,4 +8,5 @@ Maintainer: Ed Baker <edwbaker@gmail.com>
 Description: Authenticate to a Drupal site and access content.
 License: GPL
 Depends:
-  RCurl
+  RCurl,
+  xml2
