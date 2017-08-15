@@ -8,7 +8,7 @@ Post a comment to a Drupal site.
 This function allows a comment to be posted to a Drupal node.
 }
 \usage{
-drupalr.postComment <- function(d_url, d_path, body, params, c)
+drupalr.postComment(d_url, d_path, body, params, c)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -27,7 +27,6 @@ drupalr.postComment <- function(d_url, d_path, body, params, c)
   \item{c}{
   A CURL handler for the authenticated user.
   }
-}
 }
 %\details{
 %%  ~~ If necessary, more details than the description above ~~
