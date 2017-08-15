@@ -50,6 +50,7 @@ Ed Baker
 function(d_url, path, c = getCurlHandle()) {
   return(getURL(paste0(d_url,path), curl = c))
 }
+}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 \keyword{ ~kwd1 }
